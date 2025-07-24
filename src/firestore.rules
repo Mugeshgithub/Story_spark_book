@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Match any document in the 'books' collection
+    match /books/{bookId} {
+
+      // Allow a user to read, update, or delete a book if they are the owner.
+      // This checks the data that is *already saved* in Firestore.
+      allow read, update, delete: if request.auth != null && request.auth.uid == resource.data.userId;
+
+      // Allow a user to create a book if they are logged in and the new
+      // document's `userId` field matches their own ID.
+      // This checks the data that is *being sent* in the request.
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+    }
+  }
+}

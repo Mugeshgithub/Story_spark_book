@@ -1,0 +1,155 @@
+
+
+:root {
+  --zip-green: #00b884;
+  --zip-blue: #007bff;
+}
+
+.path-cell {
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.path-cell-center {
+  width: 90%;
+  height: 90%;
+  transition: background-color 0.2s ease-out;
+}
+
+.path-segment-horizontal {
+  position: absolute;
+  width: 50.5%; /* Overlap slightly to avoid gaps */
+  height: 90%;
+  transition: background-color 0.2s ease-out;
+}
+
+.path-segment-vertical {
+  position: absolute;
+  width: 90%;
+  height: 50.5%; /* Overlap slightly to avoid gaps */
+  transition: background-color 0.2s ease-out;
+}
+
+
+.dot-container {
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dot-bg {
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    border-radius: 50%;
+    background-color: black;
+    transition: transform 0.3s ease;
+}
+
+.dot-number {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+/* Dots that have been passed over fade out, but not entirely */
+/* to keep the number visible */
+.dot-passed {
+    opacity: 1;
+}
+.dot-passed .dot-bg {
+    transform: scale(0.8);
+    background-color: transparent;
+}
+.dot-passed .dot-number {
+    color: black;
+    font-weight: 900;
+}
+
+
+.zip-button {
+  background-color: #f0f2f5;
+  color: #333;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  flex-grow: 1;
+  max-width: 150px;
+}
+.zip-button:hover {
+  background-color: #e4e6e9;
+}
+.zip-button:disabled {
+  background-color: #f0f2f5;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Hearts Animation */
+.heart-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #ff4757;
+  transform: translate(-50%, -50%) rotate(45deg);
+  opacity: 0;
+  animation: float-up 2.5s infinite;
+}
+
+.heart:before,
+.heart:after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ff4757;
+}
+
+.heart:before {
+  top: -10px;
+  left: 0;
+}
+
+.heart:after {
+  top: 0;
+  left: -10px;
+}
+
+.heart:nth-child(1) { animation-delay: 0s; }
+.heart:nth-child(2) { animation-delay: 0.5s; left: 20%; }
+.heart:nth-child(3) { animation-delay: 1s; left: 80%; }
+.heart:nth-child(4) { animation-delay: 1.5s; left: 60%; }
+.heart:nth-child(5) { animation-delay: 2s; left: 40%; }
+
+
+@keyframes float-up {
+  0% {
+    transform: translate(-50%, 50px) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -150px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+    

@@ -1,0 +1,24 @@
+// src/lib/firebaseAdmin.js
+
+const admin = require('firebase-admin');
+
+// IMPORTANT: This path is relative to THIS FILE (src/lib/firebaseAdmin.js)
+// To go from 'src/lib/' up to the project root and then into 'credentials/',
+// you need to go up two levels.
+const serviceAccount = require('../../credentials/story-spark-a2jdn-firebase-adminsdk-fbsvc-eb7b23caff.json'); //
+
+// Initialize the app only once to prevent re-initialization errors
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://story-spark-a2jdn-default-rtdb.firebaseio.com' // Your specific Realtime Database URL
+  });
+}
+
+// Export the initialized admin object and specific service references
+// so other parts of your backend can use them.
+const db = admin.database();    // Realtime Database reference
+const auth = admin.auth();     // Authentication service reference
+const firestore = admin.firestore(); // Firestore service reference (if you use it)
+
+module.exports = { admin, db, auth, firestore };
