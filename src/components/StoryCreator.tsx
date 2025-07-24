@@ -89,11 +89,7 @@ export function StoryCreator() {
     const initialize = async () => {
         if (authLoading) return; // Wait for auth check to complete
 
-        if (!user) {
-            router.push('/login');
-            return;
-        }
-
+        // Allow anonymous users for basic functionality
         if (sessionId) {
             setUiLoading(true);
             const book = getBookBySlug(sessionId);

@@ -38,19 +38,15 @@ export function useBooks() {
   const { toast } = useToast();
   
   const getLocalStorageKey = useCallback(() => {
-    return user ? `${LOCAL_STORAGE_KEY}-${user.uid}` : null;
+    // Use user UID if available, otherwise use a fallback key
+    return user ? `${LOCAL_STORAGE_KEY}-${user.uid}` : `${LOCAL_STORAGE_KEY}-anonymous`;
   }, [user]);
 
   // Load books from localStorage
   useEffect(() => {
     const key = getLocalStorageKey();
-    if (!key) {
-        setBooks([]);
-        setIsLoading(false);
-        return;
-    };
-    
     setIsLoading(true);
+    
     try {
       const storedBooks = localStorage.getItem(key);
       if (storedBooks) {
@@ -58,12 +54,14 @@ export function useBooks() {
         // Validate that we have an array of books
         if (Array.isArray(parsedBooks)) {
           setBooks(parsedBooks);
+          console.log('Loaded books from localStorage:', parsedBooks.length);
         } else {
           console.warn('Invalid books data in localStorage, resetting');
           setBooks([]);
         }
       } else {
         setBooks([]);
+        console.log('No books found in localStorage, starting fresh');
       }
     } catch (error) {
       console.error("Failed to load books from local storage", error);
@@ -76,12 +74,11 @@ export function useBooks() {
   // Save books to localStorage with error handling
   const persistBooks = useCallback((updatedBooks: Book[]) => {
     const key = getLocalStorageKey();
-    if (!key) return;
 
     try {
         setBooks(updatedBooks);
         localStorage.setItem(key, JSON.stringify(updatedBooks));
-        console.log('Books saved to localStorage:', updatedBooks.length);
+        console.log('Books saved to localStorage:', updatedBooks.length, 'key:', key);
     } catch (error) {
         console.error("Error persisting books", error);
         
@@ -110,15 +107,10 @@ export function useBooks() {
   
   // Create a new book
   const addBook = useCallback(async (): Promise<Book | null> => {
-    if (!user) {
-        toast({ variant: 'destructive', title: 'You must be logged in to create a story.' });
-        return null;
-    }
-    
     const newBookTitle = `Untitled Story`;
     const newBook: Book = {
       id: `${Date.now()}`,
-      userId: user.uid,
+      userId: user?.uid || 'anonymous',
       slug: createSlug(`${newBookTitle}-${Date.now()}`),
       title: newBookTitle,
       coverImage: `https://placehold.co/400x600.png`,
