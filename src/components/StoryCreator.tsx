@@ -17,12 +17,11 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
   } from "@/components/ui/resizable"
-import { useDriveBooks } from '@/hooks/use-drive-books';
+import { useBooks } from '@/hooks/use-books';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import { useAuth } from '@/hooks/use-auth';
 import slugify from 'slugify';
-import type { SessionData } from '@/lib/google-drive';
 
 declare global {
     interface Window {
@@ -44,10 +43,10 @@ export function StoryCreator() {
   const params = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { getBookById, updateBook, addBook, fetchBooks } = useDriveBooks();
+  const { getBookBySlug, updateBook, addBook, books } = useBooks();
 
   const sessionId = typeof params.slug === 'string' ? params.slug : '';
-  const [currentBook, setCurrentBook] = useState<SessionData | null>(null);
+  const [currentBook, setCurrentBook] = useState<Book | null>(null);
   const [messages, setMessages] = useState<ChatMessageWithImage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -60,13 +59,13 @@ export function StoryCreator() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<any>(null);
 
-  const handleSave = useCallback(async (bookUpdates: Partial<SessionData> & { id: string }, silent: boolean = false) => {
+  const handleSave = useCallback(async (bookUpdates: Partial<Book> & { id: string }, silent: boolean = false) => {
     if(!bookUpdates.id) return;
     
     setIsSaving(true);
 
     try {
-        await updateBook(bookUpdates);
+        updateBook(bookUpdates);
         
         setCurrentBook(prev => prev ? { ...prev, ...bookUpdates, updatedAt: Date.now() } : null);
 
@@ -97,7 +96,7 @@ export function StoryCreator() {
 
         if (sessionId) {
             setUiLoading(true);
-            const book = await getBookById(sessionId);
+            const book = getBookBySlug(sessionId);
             if (book) {
                 setCurrentBook(book);
                 
@@ -110,20 +109,29 @@ export function StoryCreator() {
                     
                     // Save the updated title directly without using handleSave
                     try {
-                        await updateBook({ id: book.id, title: titleFromUrl });
+                        updateBook({ id: book.id, title: titleFromUrl });
                     } catch (error) {
                         console.error("Failed to update title:", error);
                     }
                 }
             } else {
-                toast({ variant: 'destructive', title: 'Story not found' });
-                router.replace('/gallery'); // Use replace to avoid broken back button history
+                // If book doesn't exist, create a new one
+                const newBook = await addBook();
+                if (newBook) {
+                    setCurrentBook(newBook);
+                    setMessages([]);
+                    // Redirect to the new book's URL
+                    router.replace(`/story-creator/${newBook.slug}`);
+                } else {
+                    toast({ variant: 'destructive', title: 'Story not found' });
+                    router.replace('/gallery'); // Use replace to avoid broken back button history
+                }
             }
             setUiLoading(false);
         }
     };
     initialize();
-  }, [sessionId, user, authLoading, getBookById, router, toast, searchParams, updateBook]);
+  }, [sessionId, user, authLoading, getBookBySlug, router, toast, searchParams, updateBook]);
 
 
   useEffect(() => {

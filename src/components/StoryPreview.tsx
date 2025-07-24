@@ -12,13 +12,12 @@ import { Input } from "./ui/input";
 import { useState, useEffect, useCallback, useTransition } from "react";
 import { DrawingCanvas } from "./DrawingCanvas";
 import { useGoogleDrive } from '@/hooks/use-google-drive';
-import type { SessionData } from '@/lib/google-drive';
-
+import type { Book } from '@/lib/types';
 
 interface StoryPreviewProps {
-  book: SessionData | null;
+  book: Book | null;
   onContentChange: (newContent: string) => void;
-  onBookChange: (updates: Partial<SessionData>) => void;
+  onBookChange: (updates: Partial<Book>) => void;
 }
 
 export function StoryPreview({ book, onContentChange, onBookChange }: StoryPreviewProps) {
@@ -55,19 +54,7 @@ export function StoryPreview({ book, onContentChange, onBookChange }: StoryPrevi
         description: 'Your story is being prepared for download.',
     });
     try {
-        // Convert SessionData to Book format for PDF export
-        const bookForPdf = {
-            id: book.id,
-            title: book.title,
-            content: book.content,
-            userId: 'user',
-            slug: book.id,
-            coverImage: book.images.coverImage || '',
-            drawingUrl: book.images.drawings[0] || null,
-            createdAt: book.createdAt,
-            updatedAt: book.updatedAt,
-        };
-        await exportToPdf(bookForPdf);
+        await exportToPdf(book);
     } catch (error) {
         console.error("PDF Export failed", error);
         toast({
@@ -87,14 +74,8 @@ export function StoryPreview({ book, onContentChange, onBookChange }: StoryPrevi
 
     try {
       if (drawingDataUrl === "DELETE") {
-        // For local storage, we'll just clear the drawing
-        const updatedDrawings = book.images.drawings.filter((d, index) => index !== 0);
-        onBookChange({ 
-          images: { 
-            ...book.images, 
-            drawings: updatedDrawings 
-          } 
-        });
+        // Clear the drawing
+        onBookChange({ drawingUrl: null });
         toast({ title: "Drawing Cleared" });
       } else {
         const fileName = `drawing-${book.id}-${Date.now()}.png`;
@@ -102,13 +83,7 @@ export function StoryPreview({ book, onContentChange, onBookChange }: StoryPrevi
         
         if (result) {
           // result is { fileId: string; fileUrl: string }
-          const updatedDrawings = [...book.images.drawings, result.fileUrl];
-          onBookChange({ 
-            images: { 
-              ...book.images, 
-              drawings: updatedDrawings 
-            } 
-          });
+          onBookChange({ drawingUrl: result.fileUrl });
           toast({ title: "Drawing Saved!" });
         } else {
           throw new Error('Upload failed');
@@ -153,7 +128,7 @@ export function StoryPreview({ book, onContentChange, onBookChange }: StoryPrevi
         </ScrollArea>
         {isDrawingEnabled && (
             <DrawingCanvas
-                initialDataUrl={book?.images.drawings[0] || null}
+                initialDataUrl={book?.drawingUrl || null}
                 onSave={handleDrawingSave}
             />
         )}
