@@ -1,0 +1,375 @@
+[debug] [2025-07-24T18:42:47.883Z] ----------------------------------------------------------------------
+[debug] [2025-07-24T18:42:47.886Z] Command:       /opt/homebrew/Cellar/node/24.1.0/bin/node /opt/homebrew/bin/firebase deploy --only hosting
+[debug] [2025-07-24T18:42:47.886Z] CLI Version:   14.9.0
+[debug] [2025-07-24T18:42:47.886Z] Platform:      darwin
+[debug] [2025-07-24T18:42:47.886Z] Node Version:  v24.1.0
+[debug] [2025-07-24T18:42:47.886Z] Time:          Thu Jul 24 2025 20:42:47 GMT+0200 (Central European Summer Time)
+[debug] [2025-07-24T18:42:47.886Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-24T18:42:47.993Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-24T18:42:47.993Z] > authorizing via signed-in user (snazzy.mugi@gmail.com)
+[debug] [2025-07-24T18:42:47.993Z] [iam] checking project storyspark-qlujy for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-07-24T18:42:47.994Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:47.994Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:47.994Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/storyspark-qlujy:testIamPermissions [none]
+[debug] [2025-07-24T18:42:47.994Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/storyspark-qlujy:testIamPermissions x-goog-quota-user=projects/storyspark-qlujy
+[debug] [2025-07-24T18:42:47.994Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/storyspark-qlujy:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-07-24T18:42:48.641Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/storyspark-qlujy:testIamPermissions 200
+[debug] [2025-07-24T18:42:48.641Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/storyspark-qlujy:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-07-24T18:42:48.642Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:48.642Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:48.642Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy [none]
+[debug] [2025-07-24T18:42:48.870Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy 200
+[debug] [2025-07-24T18:42:48.870Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy {"projectId":"storyspark-qlujy","projectNumber":"864321086555","displayName":"StorySpark","name":"projects/storyspark-qlujy","resources":{"hostingSite":"storyspark-qlujy"},"state":"ACTIVE","etag":"1_5ddaf67a-6bba-4883-96ee-c696ced05e20"}
+[debug] [2025-07-24T18:42:50.010Z] defaultcredentials: writing to file /Users/mugesh/.config/firebase/snazzy_mugi_gmail.com_application_default_credentials.json
+[debug] [2025-07-24T18:42:50.011Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:50.011Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:50.011Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites pageToken=&pageSize=10
+[debug] [2025-07-24T18:42:50.938Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites 200
+[debug] [2025-07-24T18:42:50.939Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites {"sites":[{"name":"projects/storyspark-qlujy/sites/storyspark-qlujy","defaultUrl":"https://storyspark-qlujy.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-07-24T18:42:50.939Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:50.939Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:50.939Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites 
+[debug] [2025-07-24T18:42:51.252Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites 200
+[debug] [2025-07-24T18:42:51.252Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites {"sites":[{"name":"projects/storyspark-qlujy/sites/storyspark-qlujy","defaultUrl":"https://storyspark-qlujy.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-07-24T18:42:51.253Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:51.253Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:51.253Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy/webApps/-/config [none]
+[debug] [2025-07-24T18:42:51.749Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy/webApps/-/config 200
+[debug] [2025-07-24T18:42:51.749Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy/webApps/-/config {"projectId":"storyspark-qlujy","storageBucket":"storyspark-qlujy.firebasestorage.app","apiKey":"AIzaSyCzuGgGATXnCdz9qAifPQTvqTVBKGrzKnw","authDomain":"storyspark-qlujy.firebaseapp.com","messagingSenderId":"864321086555"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2025-07-24T18:42:53.585Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:53.585Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:42:53.585Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites/storyspark-qlujy [none]
+[debug] [2025-07-24T18:42:53.762Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites/storyspark-qlujy 200
+[debug] [2025-07-24T18:42:53.762Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites/storyspark-qlujy {"name":"projects/storyspark-qlujy/sites/storyspark-qlujy","defaultUrl":"https://storyspark-qlujy.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.3.3
+
+[info]    - Environments: .env
+
+
+[info]    Creating an optimized production build ...
+
+[info]  ⚠ Compiled with warnings in 1000ms
+
+
+[info] ./node_modules/@opentelemetry/sdk-node/build/src/TracerProviderWithEnvExporter.js
+Module not found: Can't resolve '@opentelemetry/exporter-jaeger' in '/Users/mugesh/Downloads/download (1)/node_modules/@opentelemetry/sdk-node/build/src'
+
+Import trace for requested module:
+./node_modules/@opentelemetry/sdk-node/build/src/TracerProviderWithEnvExporter.js
+./node_modules/@opentelemetry/sdk-node/build/src/sdk.js
+./node_modules/@opentelemetry/sdk-node/build/src/index.js
+./node_modules/@genkit-ai/core/lib/tracing.js
+./node_modules/genkit/lib/tracing.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/kindle-expert-flow.ts
+
+./node_modules/handlebars/lib/index.js
+require.extensions is not supported by webpack. Use a loader instead.
+
+Import trace for requested module:
+./node_modules/handlebars/lib/index.js
+./node_modules/dotprompt/dist/index.js
+./node_modules/@genkit-ai/core/lib/registry.js
+./node_modules/genkit/lib/registry.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/kindle-expert-flow.ts
+
+./node_modules/handlebars/lib/index.js
+require.extensions is not supported by webpack. Use a loader instead.
+
+Import trace for requested module:
+./node_modules/handlebars/lib/index.js
+./node_modules/dotprompt/dist/index.js
+./node_modules/@genkit-ai/core/lib/registry.js
+./node_modules/genkit/lib/registry.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/kindle-expert-flow.ts
+
+./node_modules/handlebars/lib/index.js
+require.extensions is not supported by webpack. Use a loader instead.
+
+Import trace for requested module:
+./node_modules/handlebars/lib/index.js
+./node_modules/dotprompt/dist/index.js
+./node_modules/@genkit-ai/core/lib/registry.js
+./node_modules/genkit/lib/registry.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/kindle-expert-flow.ts
+
+
+[info]  ✓ Compiled successfully in 1000ms
+
+[info]    Skipping validation of types
+   Skipping linting
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/14) ...
+
+[info]    Generating static pages (3/14) 
+
+[info]    Generating static pages (6/14) 
+
+[info]    Generating static pages (10/14) 
+ ✓ Generating static pages (14/14)
+
+[info]    Finalizing page optimization ...
+
+[info]    Collecting build traces ...
+
+[info] 
+
+[info] Route (app)                                 Size  First Load JS
+┌ ○ /                                    12.3 kB         139 kB
+├ ○ /_not-found                            988 B         103 kB
+├ ○ /api                                   150 B         102 kB
+├ ○ /api/books                             150 B         102 kB
+├ ƒ /api/drive/sessions                    150 B         102 kB
+├ ƒ /api/drive/upload-image                150 B         102 kB
+├ ƒ /api/drive/upload-session              150 B         102 kB
+├ ○ /gallery                             8.57 kB         297 kB
+├ ○ /login                               3.92 kB         278 kB
+├ ○ /signup                              3.99 kB         278 kB
+├ ○ /story-creator                        1.1 kB         103 kB
+└ ƒ /story-creator/[slug]                 245 kB         527 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/4bd1b696-9258e49f2cc05889.js  53.2 kB
+  ├ chunks/684-8c5247baefb7b076.js       46.4 kB
+  └ other shared chunks (total)          2.07 kB
+
+
+[info] 
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • non-static component /api/drive/sessions/route
+[info]  • non-static component /api/drive/upload-session/route
+[info]  • non-static component /api/drive/upload-image/route
+[info]  • non-static component /story-creator/[slug]/page
+[info]  • route with server action /_not-found
+[debug] [2025-07-24T18:43:04.888Z]  • route with server action /gallery
+[debug] [2025-07-24T18:43:04.888Z]  • route with server action /login
+[debug] [2025-07-24T18:43:04.888Z]  • route with server action /
+[debug] [2025-07-24T18:43:04.888Z]  • route with server action /story-creator
+[debug] [2025-07-24T18:43:04.888Z]  • route with server action /signup
+[debug] [2025-07-24T18:43:04.888Z]  • route with server action /story-creator/[slug]
+[info]  • and 6 other reasons, use --debug to see more
+[info] 
+[debug] [2025-07-24T18:43:05.271Z] skipping /gallery due to server action
+[debug] [2025-07-24T18:43:05.271Z] skipping / due to server action
+[debug] [2025-07-24T18:43:05.271Z] skipping /story-creator due to server action
+[debug] [2025-07-24T18:43:05.271Z] skipping /signup due to server action
+[debug] [2025-07-24T18:43:05.271Z] skipping /login due to server action
+[debug] [2025-07-24T18:43:05.329Z] Error: EISDIR: illegal operation on a directory, copyfile '/Users/mugesh/Downloads/download (1)/.next/server/app/api.body' -> '/Users/mugesh/Downloads/download (1)/.firebase/storyspark-qlujy/hosting/api'
+    at async copyFile (node:internal/fs/promises:615:10)
+    at async /opt/homebrew/lib/node_modules/firebase-tools/lib/frameworks/next/index.js:342:13
+    at async Promise.all (index 2)
+    at async ɵcodegenPublicDirectory (/opt/homebrew/lib/node_modules/firebase-tools/lib/frameworks/next/index.js:280:5)
+    at async prepareFrameworks (/opt/homebrew/lib/node_modules/firebase-tools/lib/frameworks/index.js:243:13)
+    at async deploy (/opt/homebrew/lib/node_modules/firebase-tools/lib/deploy/index.js:78:9)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-24T18:50:22.013Z] ----------------------------------------------------------------------
+[debug] [2025-07-24T18:50:22.019Z] Command:       /opt/homebrew/Cellar/node/24.1.0/bin/node /opt/homebrew/bin/firebase deploy --only hosting
+[debug] [2025-07-24T18:50:22.019Z] CLI Version:   14.9.0
+[debug] [2025-07-24T18:50:22.019Z] Platform:      darwin
+[debug] [2025-07-24T18:50:22.019Z] Node Version:  v24.1.0
+[debug] [2025-07-24T18:50:22.019Z] Time:          Thu Jul 24 2025 20:50:22 GMT+0200 (Central European Summer Time)
+[debug] [2025-07-24T18:50:22.019Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-24T18:50:22.129Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-24T18:50:22.129Z] > authorizing via signed-in user (snazzy.mugi@gmail.com)
+[debug] [2025-07-24T18:50:22.129Z] [iam] checking project storyspark-qlujy for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-07-24T18:50:22.130Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:22.130Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:22.130Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/storyspark-qlujy:testIamPermissions [none]
+[debug] [2025-07-24T18:50:22.130Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/storyspark-qlujy:testIamPermissions x-goog-quota-user=projects/storyspark-qlujy
+[debug] [2025-07-24T18:50:22.130Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/storyspark-qlujy:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-07-24T18:50:22.894Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/storyspark-qlujy:testIamPermissions 200
+[debug] [2025-07-24T18:50:22.894Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/storyspark-qlujy:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-07-24T18:50:22.895Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:22.895Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:22.895Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy [none]
+[debug] [2025-07-24T18:50:23.141Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy 200
+[debug] [2025-07-24T18:50:23.141Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy {"projectId":"storyspark-qlujy","projectNumber":"864321086555","displayName":"StorySpark","name":"projects/storyspark-qlujy","resources":{"hostingSite":"storyspark-qlujy"},"state":"ACTIVE","etag":"1_5ddaf67a-6bba-4883-96ee-c696ced05e20"}
+[debug] [2025-07-24T18:50:24.294Z] defaultcredentials: writing to file /Users/mugesh/.config/firebase/snazzy_mugi_gmail.com_application_default_credentials.json
+[debug] [2025-07-24T18:50:24.295Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:24.295Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:24.295Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites pageToken=&pageSize=10
+[debug] [2025-07-24T18:50:25.183Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites 200
+[debug] [2025-07-24T18:50:25.183Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites {"sites":[{"name":"projects/storyspark-qlujy/sites/storyspark-qlujy","defaultUrl":"https://storyspark-qlujy.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-07-24T18:50:25.189Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:25.190Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:25.191Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites 
+[debug] [2025-07-24T18:50:25.463Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites 200
+[debug] [2025-07-24T18:50:25.464Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites {"sites":[{"name":"projects/storyspark-qlujy/sites/storyspark-qlujy","defaultUrl":"https://storyspark-qlujy.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-07-24T18:50:25.464Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:25.464Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:25.464Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy/webApps/-/config [none]
+[debug] [2025-07-24T18:50:25.870Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy/webApps/-/config 200
+[debug] [2025-07-24T18:50:25.870Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/storyspark-qlujy/webApps/-/config {"projectId":"storyspark-qlujy","storageBucket":"storyspark-qlujy.firebasestorage.app","apiKey":"AIzaSyCzuGgGATXnCdz9qAifPQTvqTVBKGrzKnw","authDomain":"storyspark-qlujy.firebaseapp.com","messagingSenderId":"864321086555"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2025-07-24T18:50:27.975Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:27.976Z] Checked if tokens are valid: true, expires at: 1753385008080
+[debug] [2025-07-24T18:50:27.976Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites/storyspark-qlujy [none]
+[debug] [2025-07-24T18:50:28.156Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites/storyspark-qlujy 200
+[debug] [2025-07-24T18:50:28.156Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/storyspark-qlujy/sites/storyspark-qlujy {"name":"projects/storyspark-qlujy/sites/storyspark-qlujy","defaultUrl":"https://storyspark-qlujy.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.3.3
+
+[info]    - Environments: .env
+
+
+[info]    Creating an optimized production build ...
+
+[info]  ⚠ Compiled with warnings in 1000ms
+
+./node_modules/@opentelemetry/sdk-node/build/src/TracerProviderWithEnvExporter.js
+Module not found: Can't resolve '@opentelemetry/exporter-jaeger' in '/Users/mugesh/Downloads/download (1)/node_modules/@opentelemetry/sdk-node/build/src'
+
+Import trace for requested module:
+./node_modules/@opentelemetry/sdk-node/build/src/TracerProviderWithEnvExporter.js
+./node_modules/@opentelemetry/sdk-node/build/src/sdk.js
+./node_modules/@opentelemetry/sdk-node/build/src/index.js
+./node_modules/@genkit-ai/core/lib/tracing.js
+./node_modules/genkit/lib/tracing.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/kindle-expert-flow.ts
+
+./node_modules/handlebars/lib/index.js
+require.extensions is not supported by webpack. Use a loader instead.
+
+Import trace for requested module:
+./node_modules/handlebars/lib/index.js
+./node_modules/dotprompt/dist/index.js
+./node_modules/@genkit-ai/core/lib/registry.js
+./node_modules/genkit/lib/registry.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/kindle-expert-flow.ts
+
+./node_modules/handlebars/lib/index.js
+require.extensions is not supported by webpack. Use a loader instead.
+
+Import trace for requested module:
+./node_modules/handlebars/lib/index.js
+./node_modules/dotprompt/dist/index.js
+./node_modules/@genkit-ai/core/lib/registry.js
+./node_modules/genkit/lib/registry.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/kindle-expert-flow.ts
+
+./node_modules/handlebars/lib/index.js
+require.extensions is not supported by webpack. Use a loader instead.
+
+Import trace for requested module:
+./node_modules/handlebars/lib/index.js
+./node_modules/dotprompt/dist/index.js
+./node_modules/@genkit-ai/core/lib/registry.js
+./node_modules/genkit/lib/registry.js
+./node_modules/genkit/lib/genkit.js
+./node_modules/genkit/lib/index.mjs
+./src/ai/flows/kindle-expert-flow.ts
+
+
+[info]  ✓ Compiled successfully in 1000ms
+
+[info]    Skipping validation of types
+   Skipping linting
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/14) ...
+
+[info]    Generating static pages (3/14) 
+   Generating static pages (6/14) 
+
+[info]    Generating static pages (10/14) 
+ ✓ Generating static pages (14/14)
+
+[info]    Finalizing page optimization ...
+   Collecting build traces ...
+
+[info] 
+
+[info] Route (app)                                 Size  First Load JS
+┌ ○ /                                    12.3 kB         139 kB
+├ ○ /_not-found                            988 B         103 kB
+├ ○ /api                                   150 B         102 kB
+├ ○ /api/books                             150 B         102 kB
+├ ƒ /api/drive/sessions                    150 B         102 kB
+├ ƒ /api/drive/upload-image                150 B         102 kB
+├ ƒ /api/drive/upload-session              150 B         102 kB
+├ ○ /gallery                             8.57 kB         297 kB
+├ ○ /login                               3.92 kB         278 kB
+├ ○ /signup                              3.99 kB         278 kB
+├ ○ /story-creator                        1.1 kB         103 kB
+└ ƒ /story-creator/[slug]                 245 kB         527 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/4bd1b696-9258e49f2cc05889.js  53.2 kB
+  ├ chunks/684-8c5247baefb7b076.js       46.4 kB
+  └ other shared chunks (total)          2.07 kB
+
+
+[info] 
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • non-static component /api/drive/sessions/route
+[info]  • non-static component /api/drive/upload-image/route
+[info]  • non-static component /api/drive/upload-session/route
+[info]  • non-static component /story-creator/[slug]/page
+[info]  • route with server action /_not-found
+[debug] [2025-07-24T18:50:39.469Z]  • route with server action /gallery
+[debug] [2025-07-24T18:50:39.469Z]  • route with server action /
+[debug] [2025-07-24T18:50:39.469Z]  • route with server action /story-creator/[slug]
+[debug] [2025-07-24T18:50:39.469Z]  • route with server action /signup
+[debug] [2025-07-24T18:50:39.469Z]  • route with server action /story-creator
+[debug] [2025-07-24T18:50:39.469Z]  • route with server action /login
+[info]  • and 6 other reasons, use --debug to see more
+[info] 
+[debug] [2025-07-24T18:50:39.595Z] skipping /login due to server action
+[debug] [2025-07-24T18:50:39.595Z] skipping / due to server action
+[debug] [2025-07-24T18:50:39.595Z] skipping /signup due to server action
+[debug] [2025-07-24T18:50:39.595Z] skipping /gallery due to server action
+[debug] [2025-07-24T18:50:39.595Z] skipping /story-creator due to server action
+[debug] [2025-07-24T18:50:39.642Z] Error: EISDIR: illegal operation on a directory, copyfile '/Users/mugesh/Downloads/download (1)/.next/server/app/api.body' -> '/Users/mugesh/Downloads/download (1)/.firebase/storyspark-qlujy/hosting/api'
+    at async copyFile (node:internal/fs/promises:615:10)
+    at async /opt/homebrew/lib/node_modules/firebase-tools/lib/frameworks/next/index.js:342:13
+    at async Promise.all (index 0)
+    at async ɵcodegenPublicDirectory (/opt/homebrew/lib/node_modules/firebase-tools/lib/frameworks/next/index.js:280:5)
+    at async prepareFrameworks (/opt/homebrew/lib/node_modules/firebase-tools/lib/frameworks/index.js:243:13)
+    at async deploy (/opt/homebrew/lib/node_modules/firebase-tools/lib/deploy/index.js:78:9)
+[error] 
+[error] Error: An unexpected error has occurred.
